@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -66,31 +67,38 @@ namespace Nöjesparken
             if (input >= 140)
             {
                 allowedRides = [rides[0], rides[1], rides[2], rides[3], rides[4]];
+                show = ShowRides(allowedRides);
             }
 
             else if (input < 140 && input > 130)
             {
                 allowedRides = [rides[0], rides[1], rides[2], rides[3]];
+                show = ShowRides(allowedRides);
             }
 
             else if (input < 130 && input > 110)
             {
                 allowedRides = [rides[0], rides[1], rides[2]];
+                show = ShowRides(allowedRides);
             }
 
             else if (input <= 110 && input > 89)
             {
                 allowedRides = [rides[0], rides[1]];
+                show = ShowRides(allowedRides);
             }
 
             else
             {
-                allowedRides = [rides[0]];
+                show = rides[0];
             }
 
-            show = String.Join(" , ", allowedRides);
-
             MessageBox.Show($"Du får åka: {show}");
+        }
+
+        private string ShowRides(string[] allowedRides)
+        {
+            return String.Join(", ", allowedRides.Take(allowedRides.Count() - 1)) + " och " + allowedRides.Last();
         }
     }
 }
