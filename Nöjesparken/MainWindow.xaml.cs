@@ -27,6 +27,8 @@ namespace Nöjesparken
                 txtBox.Focus();
                 return;
             }
+
+
         }
 
         private bool CheckIfLengthIsOver140cm()
@@ -36,12 +38,20 @@ namespace Nöjesparken
             {
                 return false;
             }
-            return true;
+
+            if (input > 139)
+            {
+                MessageBox.Show("Du är tillräckligt lång för att åka!\nGRATTIS!");
+                return true;
+            }
+
+            else
+            {
+                MessageBox.Show("Tyvärr, du är inte tillräckligt lång för att åka.");
+                txtBox.Clear();
+                txtBox.Focus();
+                return true;
+            }
         }
-
-
     }
-
-
-
 }
