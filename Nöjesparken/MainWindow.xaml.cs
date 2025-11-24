@@ -27,8 +27,6 @@ namespace Nöjesparken
                 txtBox.Focus();
                 return;
             }
-
-
         }
 
         private bool CheckIfLengthIsOver140cm()
