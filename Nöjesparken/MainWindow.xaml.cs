@@ -18,15 +18,19 @@ namespace Nöjesparken
             InitializeComponent();
         }
 
+        //private int _input = 0;
+
         private void Calculate(object sender, RoutedEventArgs e)
         {
             if (!CheckIfLengthIsOver140cm())
+
             {
                 MessageBox.Show("Skriv i din längd i cm. Inga bokstäver!");
                 txtBox.Clear();
                 txtBox.Focus();
                 return;
             }
+            CheckWhichRidesYouCanUse();
         }
 
         private bool CheckIfLengthIsOver140cm()
@@ -46,10 +50,41 @@ namespace Nöjesparken
             else
             {
                 MessageBox.Show("Tyvärr, du är inte tillräckligt lång för att åka.");
-                txtBox.Clear();
-                txtBox.Focus();
                 return true;
             }
+        }
+
+        private void CheckWhichRidesYouCanUse()
+        {
+            string[] rides = ["Småbarnens karusell" , "Snurrande tekoppar",
+                             "Flygande elefanter","Lila berg-och-dal banan", "Stora berg-och-dal banan"];
+
+            string[] allowedRides = new string[5];
+            string[] showRides = new string[5];
+            int input = int.Parse(txtBox.Text);
+
+            if (input <= 89)
+            {
+                allowedRides = [rides[0]];
+            }
+
+            if (input <= 110)
+            {
+                allowedRides = [rides[0], rides[1]];
+            }
+
+            if (input <= 130)
+            {
+                allowedRides = [rides[0], rides[1], rides[2]];
+            }
+
+            for(int i = 0; i < allowedRides.Length; i++)
+            {
+                string showString = allowedRides[0];
+            }
+
+            MessageBox.Show($"Du får åka: {} ");
+
         }
     }
 }
