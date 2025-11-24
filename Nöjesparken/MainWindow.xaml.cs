@@ -19,8 +19,6 @@ namespace Nöjesparken
             InitializeComponent();
         }
 
-        //private int _input = 0;
-
         private void Calculate(object sender, RoutedEventArgs e)
         {
             if (!CheckIfLengthIsOver140cm())
@@ -132,5 +130,4 @@ namespace Nöjesparken
             return people; 
         }
     }
-    
 }
