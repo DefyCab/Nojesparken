@@ -101,7 +101,7 @@ namespace Nöjesparken
 
         private string ShowRides(string[] allowedRides)
         {
-            return String.Join(", ", allowedRides.Take(allowedRides.Count() - 1)) + " och " + allowedRides.Last();
+            return String.Join(", ", allowedRides.Take(allowedRides.Length - 1)) + " och " + allowedRides.Last();
         }
 
         private int Passengers()
