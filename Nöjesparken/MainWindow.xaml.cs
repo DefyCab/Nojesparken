@@ -124,7 +124,7 @@ namespace Nöjesparken
 
             for (int i = 0; i < lengths.Length; i++)
             {
-                if (lengths[i]<=139 && lengths[i]>130)
+                if (lengths[i]<=139 && lengths[i]>=130)
                 {
                     people++;
                 }    
