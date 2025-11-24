@@ -57,34 +57,40 @@ namespace Nöjesparken
         private void CheckWhichRidesYouCanUse()
         {
             string[] rides = ["Småbarnens karusell" , "Snurrande tekoppar",
-                             "Flygande elefanter","Lila berg-och-dal banan", "Stora berg-och-dal banan"];
+                             "Flygande elefanter","Lilla berg-och-dal banan", "Stora berg-och-dal banan"];
 
             string[] allowedRides = new string[5];
-            string[] showRides = new string[5];
+            string show = "";
             int input = int.Parse(txtBox.Text);
 
-            if (input <= 89)
+            if (input >= 140)
             {
-                allowedRides = [rides[0]];
+                allowedRides = [rides[0], rides[1], rides[2], rides[3], rides[4]];
             }
 
-            if (input <= 110)
+            else if (input < 140 && input > 130)
             {
-                allowedRides = [rides[0], rides[1]];
+                allowedRides = [rides[0], rides[1], rides[2], rides[3]];
             }
 
-            if (input <= 130)
+            else if (input < 130 && input > 110)
             {
                 allowedRides = [rides[0], rides[1], rides[2]];
             }
 
-            for(int i = 0; i < allowedRides.Length; i++)
+            else if (input <= 110 && input > 89)
             {
-                string showString = allowedRides[0];
+                allowedRides = [rides[0], rides[1]];
             }
 
-            MessageBox.Show($"Du får åka: {} ");
+            else
+            {
+                allowedRides = [rides[0]];
+            }
 
+            show = String.Join(" , ", allowedRides);
+
+            MessageBox.Show($"Du får åka: {show}");
         }
     }
 }
